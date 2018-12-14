@@ -28,8 +28,9 @@ public class FileStoreController {
 		 */
 		@PostMapping("/addFile")
 		public UUID createInterest(@Valid @RequestBody FileStore fileObj) {
-			
 			fileObj.setFileSize(fileObj.getFileContent().length);
+			System.out.println(System.currentTimeMillis()+"::Received a file to store with length:"+fileObj.getFileSize());
+			log.debug("Received a file to store with length:"+fileObj.getFileSize());
 			fileObj=fileStoreRepoObj.save(fileObj);
 			UUID id=fileObj.getId();
 			return (id);
