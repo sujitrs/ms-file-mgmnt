@@ -35,10 +35,11 @@ public class FileStore{
 	
 	@Column(nullable = false, updatable = false)
 	private String fileType;
-	
+
 	@Column(nullable = true, updatable = true)
 	private boolean removed;
-	
+
+
 	@Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     private Date createdAt;

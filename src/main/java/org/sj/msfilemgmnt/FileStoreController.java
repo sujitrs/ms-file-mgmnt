@@ -41,7 +41,7 @@ public class FileStoreController {
 			UUID id=fileObj.getId();
 			return (id);
 		}
-		
+
 		/**
 		 *
 		 * To be used to get store File { "id:":"UUID FORMAT" }
@@ -50,9 +50,10 @@ public class FileStoreController {
 		@GetMapping("/getFile/{id}")
 		public FileStore getFile(@PathVariable (value = "id") UUID fileId) {
 			return fileStoreRepoObj.findById(fileId).orElseThrow(() -> new ResourceNotFoundException("FileStore", "id", fileId));
-			
+
 		}
-		
+
+
 		/**
 		 *
 		 * To be used to remove store File { "id:":"UUID FORMAT" }
@@ -64,5 +65,5 @@ public class FileStoreController {
 			oldFileObj.setRemoved(true);
 			return HttpStatus.OK;
 		}
-		
+
 }
